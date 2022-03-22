@@ -1,5 +1,8 @@
-let playroundresult = "";
+let playroundresult ="";
+const myArray = ["rock", "paper", "scissors"];
+let playerpick = (prompt("please enter rock paper or scissors"));
 let score = 0;
+let playerinput = ("please enter rock paper or scissors");
 function playround(playerpick, computerplay) {
     if(playerpick === ("rock") && computerplay() === ("rock")){
         playroundresult = ("You draw! rock rock");
@@ -38,9 +41,6 @@ function playround(playerpick, computerplay) {
         score =- 1;
     }
 }
-const myArray = ["rock", "paper", "scissors"];
-let playerpick = (prompt("please enter rock paper or scissors"));
-
 function computerplay() {
   return myArray[~~(Math.random() * myArray.length)];
 }
@@ -48,8 +48,6 @@ function computerplay() {
 function playerplay() {
     return playerpick = playerpick.toLowerCase();
 }
-let playerinput = ("please enter rock paper or scissors");
-
 function game() {
     for (let i = 0; i < 4; i++) {
         playerinput = (prompt("please enter rock paper or scissors"));
