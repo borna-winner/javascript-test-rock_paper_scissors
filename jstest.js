@@ -63,7 +63,6 @@ function scoreGame() {
         return(scoreResult = "Not Int");
     }
 }
-
 function game() {
     for (let i = 0; i < 4; i++) {
         playerPick = (prompt("please enter rock paper or scissors"));
