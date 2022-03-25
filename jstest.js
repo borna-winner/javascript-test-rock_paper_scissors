@@ -49,32 +49,30 @@ function playerPlay() {
     return playerPick = playerPick.toLowerCase();
 }
 
-let playerInput = ("please enter rock paper or scissors");
-
 function scoreGame() {
-    if(score > 0) {
-        scoreResult = "ScoreWin";
-        return(scoreResult);
+    if(score >= 1) { 
+        return(scoreResult="scoreWin");
     }
-    else if(score < 0) {
-        scoreResult = "scoreLose";
-        return(scoreResult);
+    else if(score <= -1) {
+        return(scoreResult = "scoreLose");
     }
-    else if(score === 0){
-        scoreResult = "OKK";
+    else if(score == 0){
+        return(scoreResult = "OKK draw");
     }
     else{
-        return("What happened");
+        return(scoreResult = "Not Int");
     }
 }
 
 function game() {
     for (let i = 0; i < 4; i++) {
-        playerInput = (prompt("please enter rock paper or scissors"));
+        playerPick = (prompt("please enter rock paper or scissors"));
         playerPlay();   
         (playRound(playerPick, computerPlay)); 
         console.log(playRoundResult);
-        if(i === 4) {break;}
-        console.log(scoreGame());
+        if(i === 3) break;
+            console.log(scoreGame());
+            console.log(score);
+        
 }
 }
