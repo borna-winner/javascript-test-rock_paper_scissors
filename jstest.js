@@ -67,7 +67,7 @@ function scoreName() {
     console.log("Your score is"+" " + score);
 }
 function game() {
-    for (let i = 0; i < 4; i++) {
+    {
         playerPick = (prompt("please enter rock paper or scissors"));
         playerPlay();
         computerPlay();   

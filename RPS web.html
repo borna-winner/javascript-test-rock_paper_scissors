@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page title</title>
+    <meta charset="utf-8">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="theStartGameContainer">
+        
+        <div id="emptySpace"></div>
+
+        <div id="messageContainer">Welcome to James's Rock paper Scissors game!</div>
+        
+        <br>
+        <div id="startContainer">
+        
+            <button id="startButton">Start Game</button>
+                
+        
+        </div>
+    </div>
+    <script>
+        startButton.addEventListener("click", changeLayers);
+        
+        function changeLayers(){
+            document.getElementById("emptySpace").style.display = "none";
+            document.getElementById("messageContainer").style.display = "none";
+            document.getElementById("startButton").style.display = "none";
+            document.getElementById("startContainer").style.display = "none";
+            document.getElementById("theStartGameContainer").style.display = "none";
+            document.getElementById("layerTwo").style.display = "flex";  
+            document.getElementById("layerTwoLeft").style.display = "flex";  
+            document.getElementById("layerTwoMiddle").style.display = "flex";  
+            document.getElementById("layerTwoRight").style.display = "flex";
+            document.getElementById("titleGame").style.display = "flex";
+            document.getElementById("layerTwoContainer").style.display = "flex";  
+            document.getElementById("smallTextUnderTitle").style.display = "flex";
+        }
+    </script>
+    <div id="layerTwo">
+        <div id="titleGame">Welcome, Please select rock, paper or scissors.</div>
+        <br>
+        <div id="smallTextUnderTitle">You will play 5 rounds. Your life is on the line.</div>
+        <div id="emptySpace"></div>
+        <div id="layerTwoContainer">
+            <div id="layerTwoLeft">rock</div>
+            <div id="layerTwoMiddle">paper</div>
+            <div id="layerTwoRight">scissors</div>
+        </div>
+    </div>
+</body>
+</html>
