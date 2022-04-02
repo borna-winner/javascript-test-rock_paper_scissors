@@ -39,137 +39,166 @@
         const choiceArray = ["rock", "paper", "scissors"];
         let playerPick ="L";
         layerTwoLeft.addEventListener("click",() => {
-            console.log("LayerTwoLeftAEL ran")
+            //console.log("LayerTwoLeftAEL ran")
             pickedRock();
             gameRock();
         });
         layerTwoMiddle.addEventListener("click",() => {
-            console.log("LayerTwoMiddleAEL ran")
+            //console.log("LayerTwoMiddleAEL ran")
             pickedPaper();
             gamePaper();
         });
         layerTwoRight.addEventListener("click",() => {
-            console.log("LayerTwoRightAEL ran")
+            //console.log("LayerTwoRightAEL ran")
             pickedScissors();
             gameScissors();
         });
         function pickedRock(){
-            console.log("Picked rock");
+            //console.log("Picked rock");
             return(playerPick="rock");
         }
         function pickedPaper(){
-            console.log("Picked paper");
+            //console.log("Picked paper");
             return(playerPick="paper");
         }
         function pickedScissors(){
-            console.log("Picked scissors");
+            //console.log("Picked scissors");
             return(playerPick="scissors");
         }
         function playRound() {
-            console.log("playRound ran");
-            console.log(playerPick);
-            console.log(computerPick);
+            //console.log("playRound ran");
+            //console.log(playerPick);
+            //console.log(computerPick);
             if(playerPick === ("rock") && computerPick === ("rock")){
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
                 playRoundResult = ("You draw! rock rock");
                 score += 0;
             }
             else if(playerPick === ("rock") && computerPick === ("scissors")){
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
 
                 playRoundResult = ("You win! rock beats scissors");
                 score += 1;
             }
             else if(playerPick === ("rock") && computerPick === ("paper")){
                 playRoundResult = "You lose rock he got paper";
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
                 score += -1;
             }
             else if(playerPick === ("scissors") && computerPick === ("paper")){
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
 
                 playRoundResult = "You won! scissors he got paper";
                 score += 1; 
             }
             else if(playerPick === ("scissors") && computerPick === ("scissors")){
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
 
                 playRoundResult = "You draw scissors scissors scissors";
                 score += 0;
             }
             else if(playerPick === ("scissors") && computerPick === ("rock")){
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
 
                 playRoundResult = "You lose scicssors! he got rock";
                 score += -1;
             }
             else if(playerPick === ("paper") && computerPick === ("rock")){
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
 
                 playRoundResult = "You win!!! paper beats rock";
                 score += 1;
             }
             else if(playerPick === ("paper") && computerPick === ("paper")){
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
 
                 playRoundResult = "You draw! paper he got paper";
                 score += 0;
             }
             else if(playerPick === ("paper") && computerPick === ("scissors")){
-                console.log(playerPick);
-                console.log(computerPick);
+                //console.log(playerPick);
+                //console.log(computerPick);
                 playRoundResult = "you lose paper he got scissors";
                 score += -1;
             }
         }
         function computerPlay(){
-            console.log("computerPlay ran");
+            //console.log("computerPlay ran");
             return computerPick = choiceArray[~~(Math.random() * choiceArray.length)];
         }
         function gameRock(){
-            console.log("gameRock ran");
+            ////console.log("gameRock ran");
             computerPlay();
             playRound();
             gameRoundNumber += 1;
-            if(gameRoundNumber = 5){
-                gameRoundNumber = 0;
-                return(scoreGame());
-            }
+            console.log("the Round is" + gameRoundNumber);
+            console.log(playRoundResult);
             console.log("you picked rock");
+            if(gameRoundNumber === 5){
+                gameEnd();
+            }
+            if(gameRoundNumber === 10){
+                gameEnd();
+            }
+            if(gameRoundNumber === 25){
+                gameEnd();
+            }
+            
+            
         }
         function gamePaper(){
-            console.log("gamePaper ran");
+            ////console.log("gamePaper ran");
             computerPlay();
             playRound();
             gameRoundNumber += 1;
-            if(gameRoundNumber = 5){
-                gameRoundNumber = 0;
-                return(scoreGame());
-            }
+            console.log("the Round is" + gameRoundNumber);
+            console.log(playRoundResult);
             console.log("you picked paper");
+            if(gameRoundNumber === 5){
+                gameEnd();
+            }
+            if(gameRoundNumber === 10){
+                gameEnd();
+            }
+            if(gameRoundNumber === 25){
+                gameEnd();
+            }
+
             
         }
         function gameScissors(){
-            console.log("game Scissors ran");
+            //console.log("game Scissors ran");
             computerPlay();
             playRound();
             gameRoundNumber += 1;
-            if(gameRoundNumber = 5){
-                gameRoundNumber = 0;
-                return(scoreGame());
-            }
+            console.log("the Round is" + gameRoundNumber);
+            console.log(playRoundResult);
             console.log("you picked scissors");
+            if(gameRoundNumber === 5){
+                gameEnd();
+            }
+            if(gameRoundNumber === 10){
+                gameEnd();
+            }
+            if(gameRoundNumber === 25){
+                gameEnd();
+            }
+            
+        }
+        function gameEnd(){
+            console.log(scoreGame());
+            console.log("play again");
         }
         function scoreGame() {
-            console.log("scoreGame ran");
+            //console.log("scoreGame ran");
             console.log(score);
             if(score >= 1) { 
                 console.log("YOU WON");
@@ -178,7 +207,7 @@
                 console.log("YOU LOST !!");
             }
             else if(score == 0){
-                console.log("OKK YOU draw");
+                console.log("YOU DRAW");
             }
             else{
                 return("Not Int");
