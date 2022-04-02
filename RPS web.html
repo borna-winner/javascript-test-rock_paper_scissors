@@ -39,14 +39,17 @@
         const choiceArray = ["rock", "paper", "scissors"];
         let playerPick ="L";
         layerTwoLeft.addEventListener("click",() => {
+            console.log("LayerTwoLeftAEL ran")
             pickedRock();
             gameRock();
         });
         layerTwoMiddle.addEventListener("click",() => {
+            console.log("LayerTwoMiddleAEL ran")
             pickedPaper();
             gamePaper();
         });
         layerTwoRight.addEventListener("click",() => {
+            console.log("LayerTwoRightAEL ran")
             pickedScissors();
             gameScissors();
         });
@@ -59,10 +62,11 @@
             return(playerPick="paper");
         }
         function pickedScissors(){
-            console.log("picked scissors");
+            console.log("Picked scissors");
             return(playerPick="scissors");
         }
         function playRound(playerPick, computerPick) {
+            console.log("playRound ran")
             if(playerPick === ("rock") && computerPick === ("rock")){
                 console.log(playerPick);
                 console.log(computerPick);
@@ -125,55 +129,58 @@
             }
         }
         function computerPlay(){
+            console.log("computerPlay ran");
             return computerPick = choiceArray[~~(Math.random() * choiceArray.length)];
         }
         function gameRock(){
+            console.log("gameRock ran");
             computerPlay();
             playRound();
             gameRoundNumber += 1;
             if(gameRoundNumber = 5){
-                var gameRoundNumber = 0;
-                return(scoreGame);
+                gameRoundNumber = 0;
+                return(scoreGame());
             }
             alert("you picked rock");
         }
         function gamePaper(){
+            console.log("gamePaper ran");
             computerPlay();
             playRound();
             gameRoundNumber += 1;
             if(gameRoundNumber = 5){
-                var gameRoundNumber = 0;
+                gameRoundNumber = 0;
                 return(scoreGame());
             }
             alert("you picked paper");
             
         }
         function gameScissors(){
+            console.log("game Scissors ran");
             computerPlay();
             playRound();
             gameRoundNumber += 1;
             if(gameRoundNumber = 5){
-                var gameRoundNumber = 0;
+                gameRoundNumber = 0;
                 return(scoreGame());
             }
             alert("you picked scissors");
         }
         function scoreGame() {
+            console.log("scoreGame ran");
+            console.log(score);
             if(score >= 1) { 
-                return(scoreResult="YOU WON");
+                console.log("YOU WON");
             }
             else if(score <= -1) {
-                return(scoreResult = "YOU LOST !!");
+                console.log("YOU LOST !!");
             }
             else if(score == 0){
-                return(scoreResult = "OKK YOU draw");
+                console.log("OKK YOU draw");
             }
             else{
-                return(scoreResult = "Not Int");
+                return("Not Int");
             }
-        }
-        function scoreName() {
-            console.log("Your score is"+" " + score);
         }
         // i none all the divs not just the main one....
         function changeLayers(){
