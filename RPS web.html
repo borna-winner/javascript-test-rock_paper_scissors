@@ -6,7 +6,7 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <div id="theStartGameContainer">
+    <div id="layerOne">
         
         <div id="emptySpace"></div>
 
@@ -20,15 +20,168 @@
         
         </div>
     </div>
-    <script>
+    <div id="layerTwo">
+        <div id="titleGame">Welcome, Please select rock, paper or scissors.</div>
+        <br>
+        <div id="smallTextUnderTitle">You will play 5 rounds. Your life is on the line.</div>
+        <div id="emptySpaceSecond"></div>
+        <div id="layerTwoContainer">
+            <a id="layerTwoLeft" href="#">rock</a>
+            <a id="layerTwoMiddle" href="#">paper</a>
+            <a id="layerTwoRight"href="#">scissors</a>
+        </div>
+    </div>
+    <script> 
+        let gameRoundNumber = 0;
         startButton.addEventListener("click", changeLayers);
-        
+        let playRoundResult = " ";
+        let score = 0;
+        const choiceArray = ["rock", "paper", "scissors"];
+        let playerPick ="L";
+        layerTwoLeft.addEventListener("click",() => {
+            pickedRock();
+            gameRock();
+        });
+        layerTwoMiddle.addEventListener("click",() => {
+            pickedPaper();
+            gamePaper();
+        });
+        layerTwoRight.addEventListener("click",() => {
+            pickedScissors();
+            gameScissors();
+        });
+        function pickedRock(){
+            console.log("Picked rock");
+            return(playerPick="rock");
+        }
+        function pickedPaper(){
+            console.log("Picked paper");
+            return(playerPick="paper");
+        }
+        function pickedScissors(){
+            console.log("picked scissors");
+            return(playerPick="scissors");
+        }
+        function playRound(playerPick, computerPick) {
+            if(playerPick === ("rock") && computerPick === ("rock")){
+                console.log(playerPick);
+                console.log(computerPick);
+                playRoundResult = ("You draw! rock rock");
+                score += 0;
+            }
+            else if(playerPick === ("rock") && computerPick === ("scissors")){
+                console.log(playerPick);
+                console.log(computerPick);
+
+                playRoundResult = ("You win! rock beats scissors");
+                score += 1;
+            }
+            else if(playerPick === ("rock") && computerPick === ("paper")){
+                playRoundResult = "You lose rock he got paper";
+                console.log(playerPick);
+                console.log(computerPick);
+                score += -1;
+            }
+            else if(playerPick === ("scissors") && computerPick === ("paper")){
+                console.log(playerPick);
+                console.log(computerPick);
+
+                playRoundResult = "You won! scissors he got paper";
+                score += 1; 
+            }
+            else if(playerPick === ("scissors") && computerPick === ("scissors")){
+                console.log(playerPick);
+                console.log(computerPick);
+
+                playRoundResult = "You draw scissors scissors scissors";
+                score += 0;
+            }
+            else if(playerPick === ("scissors") && computerPick === ("rock")){
+                console.log(playerPick);
+                console.log(computerPick);
+
+                playRoundResult = "You lose scicssors! he got rock";
+                score += -1;
+            }
+            else if(playerPick === ("paper") && computerPick === ("rock")){
+                console.log(playerPick);
+                console.log(computerPick);
+
+                playRoundResult = "You win!!! paper beats rock";
+                score += 1;
+            }
+            else if(playerPick === ("paper") && computerPick === ("paper")){
+                console.log(playerPick);
+                console.log(computerPick);
+
+                playRoundResult = "You draw! paper he got paper";
+                score += 0;
+            }
+            else if(playerPick === ("paper") && computerPick === ("scissors")){
+                console.log(playerPick);
+                console.log(computerPick);
+                playRoundResult = "you lose paper he got scissors";
+                score += -1;
+            }
+        }
+        function computerPlay(){
+            return computerPick = choiceArray[~~(Math.random() * choiceArray.length)];
+        }
+        function gameRock(){
+            computerPlay();
+            playRound();
+            gameRoundNumber += 1;
+            if(gameRoundNumber = 5){
+                var gameRoundNumber = 0;
+                return(scoreGame);
+            }
+            alert("you picked rock");
+        }
+        function gamePaper(){
+            computerPlay();
+            playRound();
+            gameRoundNumber += 1;
+            if(gameRoundNumber = 5){
+                var gameRoundNumber = 0;
+                return(scoreGame());
+            }
+            alert("you picked paper");
+            
+        }
+        function gameScissors(){
+            computerPlay();
+            playRound();
+            gameRoundNumber += 1;
+            if(gameRoundNumber = 5){
+                var gameRoundNumber = 0;
+                return(scoreGame());
+            }
+            alert("you picked scissors");
+        }
+        function scoreGame() {
+            if(score >= 1) { 
+                return(scoreResult="YOU WON");
+            }
+            else if(score <= -1) {
+                return(scoreResult = "YOU LOST !!");
+            }
+            else if(score == 0){
+                return(scoreResult = "OKK YOU draw");
+            }
+            else{
+                return(scoreResult = "Not Int");
+            }
+        }
+        function scoreName() {
+            console.log("Your score is"+" " + score);
+        }
+        // i none all the divs not just the main one....
         function changeLayers(){
             document.getElementById("emptySpace").style.display = "none";
             document.getElementById("messageContainer").style.display = "none";
             document.getElementById("startButton").style.display = "none";
             document.getElementById("startContainer").style.display = "none";
-            document.getElementById("theStartGameContainer").style.display = "none";
+            document.getElementById("layerOne").style.display = "none";
             document.getElementById("layerTwo").style.display = "flex";  
             document.getElementById("layerTwoLeft").style.display = "flex";  
             document.getElementById("layerTwoMiddle").style.display = "flex";  
@@ -36,18 +189,9 @@
             document.getElementById("titleGame").style.display = "flex";
             document.getElementById("layerTwoContainer").style.display = "flex";  
             document.getElementById("smallTextUnderTitle").style.display = "flex";
+            document.getElementById("emptySpaceSecond").style.display = "flex";
         }
     </script>
-    <div id="layerTwo">
-        <div id="titleGame">Welcome, Please select rock, paper or scissors.</div>
-        <br>
-        <div id="smallTextUnderTitle">You will play 5 rounds. Your life is on the line.</div>
-        <div id="emptySpace"></div>
-        <div id="layerTwoContainer">
-            <div id="layerTwoLeft">rock</div>
-            <div id="layerTwoMiddle">paper</div>
-            <div id="layerTwoRight">scissors</div>
-        </div>
-    </div>
+}
 </body>
 </html>

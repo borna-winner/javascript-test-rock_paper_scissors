@@ -39,22 +39,32 @@ html,body {
     height: 200px;
     width: 200px;
     border-radius: 25px;
-    border: 2px solid black;
+    border: 2px solid lightcoral;
     padding: 10px;
     justify-content: center;
     align-items: center;
     font-size: 32px;
+    background-color: black;
+    color: white;
+    display: block;
+    text-decoration: none;
+    text-align: center;
 }
 #layerTwoMiddle{
     display: none;
     border-radius: 25px;
-    border: 2px solid white;
+    border: 2px solid lightseagreen;
     padding: 10px;
     height: 200px;
     width: 200px;
     justify-content: center;
     align-items: center;
     font-size: 32px;
+    background-color: black;
+    color: white;
+    display: block;
+    text-decoration: none;
+    text-align: center;
 }
 #layerTwoRight{
     display: none;
@@ -66,10 +76,16 @@ html,body {
     justify-content: center;
     align-items: center;
     font-size: 32px;
+    background-color: black;
+    color: white;
+    display: block;
+    text-decoration: none;
+    text-align: center;
 }
 #titleGame{
     display: none;
     margin-top: 1em;
+    font-size: 24px;
 }
 #layerTwoContainer{
     display: none;
@@ -78,5 +94,9 @@ html,body {
 }
 #smallTextUnderTitle{
     display: none;
-    font-size: 12px;
+    font-size: 20px;
+}
+#emptySpaceSecond{
+    display: none;
+    height: 100px;
 }
