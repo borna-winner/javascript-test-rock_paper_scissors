@@ -65,8 +65,10 @@
             console.log("Picked scissors");
             return(playerPick="scissors");
         }
-        function playRound(playerPick, computerPick) {
-            console.log("playRound ran")
+        function playRound() {
+            console.log("playRound ran");
+            console.log(playerPick);
+            console.log(computerPick);
             if(playerPick === ("rock") && computerPick === ("rock")){
                 console.log(playerPick);
                 console.log(computerPick);
@@ -141,7 +143,7 @@
                 gameRoundNumber = 0;
                 return(scoreGame());
             }
-            alert("you picked rock");
+            console.log("you picked rock");
         }
         function gamePaper(){
             console.log("gamePaper ran");
@@ -152,7 +154,7 @@
                 gameRoundNumber = 0;
                 return(scoreGame());
             }
-            alert("you picked paper");
+            console.log("you picked paper");
             
         }
         function gameScissors(){
@@ -164,7 +166,7 @@
                 gameRoundNumber = 0;
                 return(scoreGame());
             }
-            alert("you picked scissors");
+            console.log("you picked scissors");
         }
         function scoreGame() {
             console.log("scoreGame ran");
