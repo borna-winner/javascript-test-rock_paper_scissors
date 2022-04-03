@@ -194,20 +194,20 @@
             
         }
         function gameEnd(){
-            console.log(scoreGame());
+            scoreGame();
             console.log("play again");
         }
         function scoreGame() {
             //console.log("scoreGame ran");
             console.log(score);
             if(score >= 1) { 
-                console.log("YOU WON");
+                return(console.log("YOU WON"));
             }
             else if(score <= -1) {
-                console.log("YOU LOST !!");
+                return(console.log("YOU LOST !!"));
             }
             else if(score == 0){
-                console.log("YOU DRAW");
+                return(console.log("YOU DRAW"));
             }
             else{
                 return("Not Int");
