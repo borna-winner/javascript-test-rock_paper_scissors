@@ -24,7 +24,11 @@
         <div id="titleGame">Welcome, Please select rock, paper or scissors.</div>
         <br>
         <div id="smallTextUnderTitle">You will play 5 rounds. Your life is on the line.</div>
-        <div id="emptySpaceSecond"></div>
+        <div id="emptySpaceHolder">
+            <div id="emptySpaceRock">You choose Rock</div>
+            <div id="emptySpacePaper">You choose Paper</div>
+            <div id="emptySpaceScissors">You choose Scissors</div>
+        </div>
         <div id="layerTwoContainer">
             <a id="layerTwoLeft" href="#">rock</a>
             <a id="layerTwoMiddle" href="#">paper</a>
@@ -136,6 +140,9 @@
         }
         function gameRock(){
             ////console.log("gameRock ran");
+            document.getElementById("emptySpaceRock").style.display = "flex";
+            document.getElementById("emptySpacePaper").style.display = "none";
+            document.getElementById("emptySpaceScissors").style.display = "none";
             computerPlay();
             playRound();
             gameRoundNumber += 1;
@@ -156,6 +163,9 @@
         }
         function gamePaper(){
             ////console.log("gamePaper ran");
+            document.getElementById("emptySpacePaper").style.display = "flex";
+            document.getElementById("emptySpaceRock").style.display = "none";
+            document.getElementById("emptySpaceScissors").style.display = "none";
             computerPlay();
             playRound();
             gameRoundNumber += 1;
@@ -176,6 +186,9 @@
         }
         function gameScissors(){
             //console.log("game Scissors ran");
+            document.getElementById("emptySpaceScissors").style.display = "flex";
+            document.getElementById("emptySpaceRock").style.display = "none";
+            document.getElementById("emptySpacePaper").style.display = "none";
             computerPlay();
             playRound();
             gameRoundNumber += 1;
@@ -194,6 +207,7 @@
             
         }
         function gameEnd(){
+            
             scoreGame();
             console.log("play again");
         }
@@ -213,6 +227,10 @@
                 return("Not Int");
             }
         }
+        //function showRockChoice(){
+        //   gameRock.addEventListener(click, )
+        //}
+        //gameRock.addEventListener(click, showRockChoice);
         // i none all the divs not just the main one....
         function changeLayers(){
             document.getElementById("emptySpace").style.display = "none";
@@ -227,7 +245,7 @@
             document.getElementById("titleGame").style.display = "flex";
             document.getElementById("layerTwoContainer").style.display = "flex";  
             document.getElementById("smallTextUnderTitle").style.display = "flex";
-            document.getElementById("emptySpaceSecond").style.display = "flex";
+            document.getElementById("emptySpaceHolder").style.display = "flex";
         }
     </script>
 }
