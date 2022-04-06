@@ -34,6 +34,11 @@
             <a id="layerTwoMiddle" href="#">paper</a>
             <a id="layerTwoRight"href="#">scissors</a>
         </div>
+            <div id="gameRoundNumber">0</div>
+            <div id="emptySpaceForOutCome"></div>
+            <div id="winDiv"> You Won!</div>
+            <div id="tieDiv">You Tied!</div>
+            <div id="loseDiv">You Lost!</div>
     </div>
     <script> 
         let gameRoundNumber = 0;
@@ -46,16 +51,19 @@
             //console.log("LayerTwoLeftAEL ran")
             pickedRock();
             gameRock();
+            gameRoundNumber += 1;
         });
         layerTwoMiddle.addEventListener("click",() => {
             //console.log("LayerTwoMiddleAEL ran")
             pickedPaper();
             gamePaper();
+            gameRoundNumber += 1;
         });
         layerTwoRight.addEventListener("click",() => {
             //console.log("LayerTwoRightAEL ran")
             pickedScissors();
             gameScissors();
+            gameRoundNumber += 1;
         });
         function pickedRock(){
             //console.log("Picked rock");
@@ -158,8 +166,6 @@
             if(gameRoundNumber === 25){
                 gameEnd();
             }
-            
-            
         }
         function gamePaper(){
             ////console.log("gamePaper ran");
@@ -204,10 +210,8 @@
             if(gameRoundNumber === 25){
                 gameEnd();
             }
-            
         }
         function gameEnd(){
-            
             scoreGame();
             console.log("play again");
         }
@@ -215,13 +219,21 @@
             //console.log("scoreGame ran");
             console.log(score);
             if(score >= 1) { 
-                return(console.log("YOU WON"));
+                document.getElementById("winDiv").style.display = "flex";
+                document.getElementById("loseDiv").style.display = "none";
+                document.getElementById("tieDiv").style.display = "none";
+
             }
             else if(score <= -1) {
-                return(console.log("YOU LOST !!"));
+                document.getElementById("loseDiv").style.display = "flex";
+                document.getElementById("tieDiv").style.display = "none";
+                document.getElementById("winDiv").style.display = "none";
+            
             }
             else if(score == 0){
-                return(console.log("YOU DRAW"));
+                document.getElementById("tieDiv").style.display = "flex";
+                document.getElementById("winDiv").style.display = "none";
+                document.getElementById("loseDiv").style.display = "none";
             }
             else{
                 return("Not Int");
@@ -246,6 +258,9 @@
             document.getElementById("layerTwoContainer").style.display = "flex";  
             document.getElementById("smallTextUnderTitle").style.display = "flex";
             document.getElementById("emptySpaceHolder").style.display = "flex";
+            document.getElementById("emptySpaceForOutCome").style.display = "flex";
+            document.getElementById("gameRoundNumber").style.display = "flex";
+
         }
     </script>
 }
